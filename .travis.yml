@@ -1,7 +1,18 @@
-dist: trusty
-
+# language: node_js
+# node_js:
+#   - "12"
+# sudo: required
+services:
+  - docker
 jobs:
   include:
+    # - stage: Test Stage
+    #   before_scripts:
+    #   - npm install
+    #   script:
+    #     - npm test
+    #   after_success:
+    #     - echo "Test Success!"
     - stage: Docker build Stage
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
